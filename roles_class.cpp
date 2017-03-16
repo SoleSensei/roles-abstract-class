@@ -9,10 +9,12 @@ using namespace std;
 
 
 class Class //base abstract class 
-{   
+{
 public:
+    char cl_name[10];
     virtual int strength () const = 0; 
     virtual ~Class() {}
+
 };
 
 class DamageDealer: public Class
@@ -21,13 +23,38 @@ protected: //open access to inheritor
     int health_;
     int attack_power_;
 public:
-    char cl_name[10];
 
-    DamageDealer(): health_(30), attack_power_(10)
+    DamageDealer()
     {
         health_ = 30;
         attack_power_ = 10;
-        strcpy(cl_name,"default");
+        strcpy(cl_name,"dd");
+    }
+     void receive_damage(int dmg)
+    {
+        if (dmg == 0) cout << "missed!" << endl;
+        if(dmg >= health_)
+        {
+            health_ = 0;
+            cout << cl_name << " is dead" << endl;
+        }
+        else health_ -= dmg;
+    }
+    int health () const { return health_; };
+};
+/*
+class Support: public Class
+{
+protected: //open access to inheritor
+    int health_;
+    int attack_power_;
+public:
+
+    Support()
+    {
+        health_ = 20;
+        attack_power_ = 5;
+        strcpy(cl_name,"sup");
     }
     void receive_damage(int dmg)
     {
@@ -41,6 +68,9 @@ public:
     }
     int health() const { return health_; }      
 };
+
+*/
+    
 
 class Warrior: public DamageDealer
 {
@@ -126,9 +156,9 @@ int main ()
         w1.attack(b1);
         w1.attack(b1);
         w1.attack(b1);
-    cout << "Warrior health: "<< w1.health() << endl;
+    //cout << "Warrior health: "<< w -> health() << endl;
 
-    cout << "Berserk health: "<< b1.health() << endl;
+    //cout << "Berserk health: "<< b -> health() << endl;
         w1.attack(b1);
         w1.attack(b1);
         w1.attack(b1);
