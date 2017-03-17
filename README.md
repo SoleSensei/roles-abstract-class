@@ -44,6 +44,7 @@ Every fight is rand(); You could change SLEEP_TIME at define, to change fight sp
     Role -> DamageDealer -> Warrior -> Berserk
     
          -> Support      -> Mage
+         
 ### fight()
 
 Warrior & Mage VS. Berserk
