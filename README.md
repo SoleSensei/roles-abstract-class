@@ -1,4 +1,4 @@
-# sole: abstract fight class
+# abstract fight class
 
 ## There are three characters now:
 
