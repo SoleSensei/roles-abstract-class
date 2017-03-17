@@ -8,7 +8,7 @@
 
 In 'Class' class we have pure virtual function - strength(), which returns sum of all pers stats.
 
-Every fight is rand(); You could change SlEEP_TIME at define, to change fight speed.
+Every fight is rand(); You could change SLEEP_TIME at define, to change fight speed.
 
 ## Avaliable functions:
  
