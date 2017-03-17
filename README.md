@@ -20,7 +20,7 @@ Every fight is rand(); You could change SLEEP_TIME at define, to change fight sp
     
     Mage.heal (Class& other) //Mage heals smb  
     
-    Mage.regen() //Mage increases his health
+    Mage.regen() //Mage increases his mana
     
     Smb.gethealth() //get current health
    
