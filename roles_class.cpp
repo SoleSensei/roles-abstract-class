@@ -35,7 +35,6 @@ public:
     virtual void addhealth (const int v)  { health_ += v; };
     virtual const char* get_name () const = 0;
 
-
 };
 
 class Role: public Class
@@ -115,6 +114,36 @@ public:
         if (!reg) cout << "~ " << cl_name << " forgot the spell ~" << endl;
         mana_ += reg;
         cout << cl_name << " regen " << reg << " mana" << endl;
+    }
+    void ressurect (Class& other)
+    {
+        if(health_ == 0)
+        {
+            cout << cl_name << " was dead" << endl;
+            return;
+        }
+        
+        if (other.gethealth() == 0)
+        { 
+            if (mana_ > 20)
+            {
+                const int hp = rand() % mana_;
+                mana_ = 0;
+                cout << cl_name << " ressurect " << other.get_name() 
+                     << " with " << hp << " hp" << endl;
+                other.addhealth(hp);
+            }
+            else 
+            {
+                cout << "Mage has not enough mana" << endl;
+                regen();
+            }
+        }
+        else
+        {
+            cout << "Mage waste his time" << endl;
+            mana_ = 0;
+        }
     }
 };
 
@@ -223,13 +252,13 @@ void fight(Warrior& w, Berserk& b, Mage& m)
         usleep(SLEEP_TIME);
         if (m.gethealth() > 0)
         {
+            if ( w.gethealth() == 0 ) m.ressurect(w);
             if ( (i%3 == 0) && w.gethealth() && w.gethealth() <= 30)
                 m.heal(w);
             else if (i%4 == 0) m.regen();
             if ( (i%10 == 0) && b.gethealth())
                 m.attack(b);
         }
-        else return;
         usleep(SLEEP_TIME);
     }
 }
