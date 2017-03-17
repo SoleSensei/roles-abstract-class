@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <ctime>
 
-#define SLEEP_TIME 100000
+#define SLEEP_TIME 150000
 
 using namespace std;
 
@@ -163,7 +163,7 @@ public:
         Role::DamageDealer("Berserk");
         health_ = 40;
         attack_power_ = 15;
-        rage_ = 5;
+        rage_ = 6;
     }
 
     int strength () const
@@ -195,7 +195,7 @@ public:
     void attack(Class& other)
     {
         Warrior::attack(other);
-        rage_ += 5;
+        rage_ += 6;
     }
 
 };
@@ -268,6 +268,3 @@ int main ()
 
     return 0;
 }
-
-
-
