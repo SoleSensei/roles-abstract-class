@@ -14,13 +14,28 @@ Every fight is rand(); You could change SLEEP_TIME at define, to change fight sp
 
 ## Avaliable functions:
  
-    Warrior.attack(Class& other) //everybody
+    Smb.attack(Class& other) //everybody
     
-    Berserk.rage_attack(Class& other) //Berserk increase his damage and attacks
+    Berserk.rage_attack(Class& other) //Berserk increases his damage and attacks
     
-    Mage.heal (Class& other) //Mage healing smb  
+    Mage.heal (Class& other) //Mage heals smb  
     
-    Mage.regen() //Mage increase his health
+    Mage.regen() //Mage increases his health
+    
+    Smb.gethealth() //get current health
+   
+    
+## examples:
+
+    Warrior w;
+    Berserk b;
+    Mage m;
+    w.attack(b);
+    if (b.gethealth() > 0)
+        b.rage_attack(m);
+    m.regen();
+    m.heal(m);
+    
     
 ## Roles hierarchy
 
