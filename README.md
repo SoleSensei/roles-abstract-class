@@ -4,9 +4,9 @@
 
   1) Warrior - just attacks
   
-  2) Berserk - could attack and has a rage mode
+  2) Berserk - can attack and has a rage mode
   
-  3) Mage - could attack and heal 
+  3) Mage - can attack and heal 
 
 In 'Class' class we have pure virtual function - strength(), which returns sum of all pers stats.
 
